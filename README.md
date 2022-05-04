@@ -125,7 +125,6 @@ for displaying discount offers to the user.
 
 ------------------------------------------------------------------------------------------------------------
 
-# ACCHA CHAL AB BOHOT CHAAP LIYA
 
 
 
