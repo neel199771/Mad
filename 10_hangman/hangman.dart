@@ -55,3 +55,6 @@ class Hangman {
     print("Bye loser");
   }
 }
+void main(List<String> arguments) {
+  Hangman().start();
+}
