@@ -1,0 +1,25 @@
+import 'package:number_to_words/number_to_words.dart';
+import 'dart:io';
+void main(List<String> arguments) {
+  stdout.write("What is your name?\r\n");
+  int? x = int.parse(stdin.readLineSync()!);
+  print(NumberToWord().convert('en-in', x));
+  print("Divisors are");
+  for (int i = 1; i <= x; i += 1) {
+    if (x % i == 0) {
+      print(i);
+    }
+  }
+  print("To check wheter no is prime or not");
+  int flag = 0;
+  for (int j = 2; j < x; j += 1) {
+    if (x % j == 0) {
+      flag = 1;
+    }
+  }
+  if (flag == 1) {
+    print("Not prime");
+  } else {
+    print(" prime");
+  }
+}
