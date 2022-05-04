@@ -1,25 +1,63 @@
-import 'package:number_to_words/number_to_words.dart';
 import 'dart:io';
-void main(List<String> arguments) {
-  stdout.write("What is your name?\r\n");
-  int? x = int.parse(stdin.readLineSync()!);
-  print(NumberToWord().convert('en-in', x));
-  print("Divisors are");
-  for (int i = 1; i <= x; i += 1) {
-    if (x % i == 0) {
-      print(i);
+import 'dart:math';
+ 
+class Class{
+  int x;
+ 
+  Class(this.x);
+ 
+  void printNumber() {
+    var arr = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'];
+    var arr2 = [];
+    print("The number in words is");
+    int x = this.x;
+    if (x == 0) {
+      print(arr[x]);
+    }
+    while(x > 0){
+      arr2.add(x%10);
+      x = (x / 10).floor();
+    }
+    for(int i=arr2.length-1; i>=0; i--){
+      print(arr[arr2[i]]);
     }
   }
-  print("To check wheter no is prime or not");
-  int flag = 0;
-  for (int j = 2; j < x; j += 1) {
-    if (x % j == 0) {
-      flag = 1;
+ 
+  void printDivisor(){
+    var k = 1;
+    var x = this.x;
+    print("The divisors are");
+    while(k <= sqrt(x)){
+      if (x % k == 0){
+        print(k);
+        print(x/k);
+      }
+      k++;
     }
   }
-  if (flag == 1) {
-    print("Not prime");
-  } else {
-    print(" prime");
+ 
+  void printPrime(){
+    var b = 0;
+    var k = 2;
+    var x = this.x;
+    while(k <= sqrt(x)){
+      if (x % k == 0){
+        b = 1;
+      }
+      k++;
+    }
+    if(b == 0){
+      print("Number is prime");
+    } else {
+      print("Number is not prime");
+    }
   }
+}
+ 
+void main() {
+  int x =  int.parse(stdin.readLineSync());
+  Class c = Class(x);
+  c.printNumber();
+  c.printDivisor();
+  c.printPrime();
 }
