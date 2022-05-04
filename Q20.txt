@@ -1,0 +1,61 @@
+//*SINGLE INHERITANCE*
+class Human{
+   void walk(){
+      print("Humans walk!");
+   }
+}
+class Person extends Human{
+   void speak(){
+      print("That person can speak");
+   }
+}
+
+void main(){
+   Person p = new Person();
+   p.speak();
+   p.walk(); 
+}
+
+
+//*MULTILEVEL INHERITANCE*
+class Gfg{
+void output1(){
+	print("Welcome to gfg!!\nYou are inside the output function of Gfg class.");
+}
+}
+
+class GfgChild1 extends Gfg{
+void output2(){
+	print("Welcome to gfg!!\nYou are inside the output function of GfgChild1 class.");
+}
+}
+
+class GfgChild2 extends GfgChild1{
+}
+
+void main() {
+var geek = new GfgChild2();
+geek.output1();
+geek.output2();
+}
+
+
+//Method Overriding
+class SuperGeek {
+void show(){
+	print("This is class SuperGeek.");
+}
+}
+
+class SubGeek extends SuperGeek {
+void show(){
+	print("This is class SubGeek child of SuperGeek.");
+}
+}
+
+void main() {
+SuperGeek geek1 = new SuperGeek();
+SubGeek geek2 = new SubGeek();
+geek1.show();
+geek2.show();
+}
