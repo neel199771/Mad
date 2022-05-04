@@ -1,6 +1,5 @@
 # Mad
 
-# Mad Pracs ke liye banaya hu copy jarur karna!
 
 
 1. Write a flutter program to create a display page using scaffold widget showing an image having
