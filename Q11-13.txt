@@ -1,0 +1,34 @@
+void main() {
+
+  Students stud = new Students();
+  stud.add("Neel",20);
+  stud.display("Neel");
+  stud.update("Neel",25);
+  stud.display("Neel");
+  stud.delete("Neel");
+
+}
+class Students {
+
+  var marks = new Map();
+  void add(String name,int studentMarks)
+  {
+    marks[name] = studentMarks;
+    print("Student Added: $name with Marks $studentMarks");
+  }
+  void update(String name,int updatedMarks)
+  {
+    marks[name] = updatedMarks;
+    print("Marks Updated: $name with Marks $updatedMarks");
+  }
+  void delete(String name)
+  {
+    marks.remove(name); 
+    print("Student Entry Deleted: $name");
+  }
+  void display(String name)
+  {
+    int studentMarks = marks[name];
+    print("Marks of $name: $studentMarks");
+  }
+}
