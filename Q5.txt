@@ -1,0 +1,128 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(
+        primaryColor: Colors.pinkAccent,
+      ),
+      home: Demo(),
+    );
+  }
+}
+
+class Demo extends StatefulWidget {
+  @override
+  _DemoState createState() => _DemoState();
+}
+
+class _DemoState extends State<Demo> {
+  final TextEditingController _num1Controller = TextEditingController();
+  final TextEditingController _num2Controller = TextEditingController();
+
+  double? _result;
+  
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Convertor'),
+        centerTitle: true,
+        backgroundColor: Colors.blue,
+      ),
+      body: Container(
+        padding: EdgeInsets.symmetric(horizontal: 10.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            TextField(
+              controller: _num1Controller,
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                labelText: 'Enter Temperature Value in Celcius',
+              ),
+            ),
+            SizedBox(height: 20),
+            TextField(
+              controller: _num2Controller,
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                labelText: 'Enter Currency Value in INR',
+              ),
+            ),
+            SizedBox(
+              height:20,
+             ),
+            Row(
+               mainAxisAlignment: MainAxisAlignment.center,
+              children:<Widget>[
+                TextButton(
+              child: Text(
+                "Convert to Farheneit",
+                style: TextStyle(color: Colors.white),
+              ),
+                style: TextButton.styleFrom(
+                backgroundColor: Colors.blue // Text Color
+              ),
+              onPressed: calculateFarheneit,
+            ),
+            SizedBox(width: 15),
+                TextButton(
+              child: Text(
+                "Convert to Euro",
+                style: TextStyle(color: Colors.white),
+              ),
+                style: TextButton.styleFrom(
+                backgroundColor: Colors.blue // Text Color
+              ),
+              onPressed: calculateEuro,
+            ),
+
+              ]
+            ),
+            SizedBox(height: 15),
+//             TextButton(
+//               child: Text(
+//                 "Addition",
+//                 style: TextStyle(color: Colors.white),
+//               ),
+//                 style: TextButton.styleFrom(
+//                 backgroundColor: Colors.blue // Text Color
+//               ),
+//               onPressed: calculateAdd,
+//             ),
+            SizedBox(height: 15),
+            Text(
+              _result == null ? "Enter Value" : "${_result?.toStringAsFixed(2)}",
+              style: TextStyle(
+                color: Colors.redAccent,
+                fontSize: 19.4,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void calculateFarheneit() {
+    double num1 = double.parse(_num1Controller.text) ;
+    double result = num1*1.8+32;
+    _result = result.toDouble();
+    setState(() {});
+  }
+  
+  void calculateEuro() {
+    double num2 = double.parse(_num2Controller.text);
+    double result = num2/80;
+    _result = result.toDouble();
+    setState(() {});
+  }
+}
